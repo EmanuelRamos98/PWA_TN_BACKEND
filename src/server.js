@@ -7,10 +7,13 @@ import mongoose from './config/db.config.js'
 import errorHandlerMiddlerware from './middlewares/errorHandler.middlerware.js'
 import pool from './config/dbMysqul.config.js'
 import ProductRepository from './repositories/product.repository.js'
+import { customCorsMiddleware } from './middlewares/cors.middleware.js'
 
 
 const PORT = 3000
 const app = express()
+
+app.use(customCorsMiddleware)
 
 app.use(cors())
 //middlewere que habilita las consultas de origen cruzados
