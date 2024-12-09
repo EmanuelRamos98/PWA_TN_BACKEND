@@ -10,9 +10,9 @@ const pool = mysql.createPool(
     }
 )
 pool.getConnection().then(
-    () => {
+    (connection) => {
         console.log('conexion exitosa con mysql');
-
+        connection.release()
     }
 ).catch((err) => {
     console.error('fallo mysql');
